@@ -1,0 +1,64 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">Sign Up</div>
+                <div class="card-body">
+                    <form [formGroup]="myform" (ngSubmit)="save()">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" formControlName="fname">
+                            <div *ngIf="pagesubmit && myform.controls.fname.errors">
+                                <p *ngIf="myform.controls.fname.errors.required">
+                                    <i class="text-danger">Please enter first name!</i>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" formControlName="lname">
+                            <div *ngIf="pagesubmit && myform.controls.lname.errors">
+                                <p *ngIf="myform.controls.lname.errors.required">
+                                    <i class="text-danger">Please enter last name!</i>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>e-Mail Id</label>
+                            <input type="email" class="form-control" formControlName="email">
+                            <div *ngIf="pagesubmit && myform.controls.email.errors">
+                                <p *ngIf="myform.controls.email.errors.required">
+                                    <i class="text-danger">Please enter an email!</i>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" formControlName="pass">
+                            <div *ngIf="pagesubmit && myform.controls.pass.errors">
+                                <p *ngIf="myform.controls.pass.errors.required">
+                                    <i class="text-danger">Please enter a password!</i>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="text-center form-group">
+                            <p class="text-danger text-center">{{errormsg}}</p>
+                            <p class="text-success text-center">{{msg}}</p>
+                        </div>
+                        <div class="text-center form-group">
+                            <button type="submit" class="btn btn-primary">Sign Up</button>
+                            &nbsp;
+                            <button (click)="reset()" type="reset" class="btn btn-warning">Reset</button>
+                        </div>
+                        <div class="text-center">
+                            <a href ="/login">Existing User</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

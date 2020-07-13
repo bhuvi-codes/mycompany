@@ -1,0 +1,101 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+           
+            <div class="card">
+                <div class="card-header bg-primary text-white">Add Employee</div>
+                <div class="card-body">
+                    <form [formGroup]="myform" (ngSubmit)="save()">
+                        <div class="form-group">
+                            <label>Emp Name</label>
+                            <input type="text" class="form-control" formControlName="ename">
+                            <div *ngIf="pagesubmit && myform.controls.ename.errors">
+                                <p *ngIf="myform.controls.ename.errors.required">
+                                    <i class="text-danger">Please enter employee name!</i>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="number" class="form-control" formControlName="mobile">
+                            <div *ngIf="pagesubmit && myform.controls.mobile.errors">
+                                <p *ngIf="myform.controls.mobile.errors.required">
+                                    <i class="text-danger">Please enter phone number! </i>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>e-Mail Id</label>
+                            <input type="email" class="form-control" formControlName="email">
+                            <div *ngIf="pagesubmit && myform.controls.email.errors">
+                                <p *ngIf="myform.controls.email.errors.required">
+                                    <i class="text-danger">Invalid Email!</i>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label> &nbsp;
+                            <input type="radio" formControlName = "gender" value="male"> Male
+                            <input type="radio" formControlName = "gender" value="female"> Female
+                        </div>
+                        <div class="form-group">
+                            <label>Age</label>
+                            <select class="form-control" formControlName="age">
+                                <option value="">Choose</option>
+                                <option *ngFor = "let i of agelist">{{i}}</option>
+                            </select>
+                            <div *ngIf="pagesubmit && myform.controls.age.errors">
+                                <p *ngIf="myform.controls.age.errors.required">
+                                    <i class="text-danger">Please select age</i>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Department</label>
+                            <select class="form-control" formControlName="dept" #dept>
+                                <option value="">Choose</option>
+                                <option>Development</option>
+                                <option>Testing</option>
+                                <option>System Admin</option>
+                                <option>Finance</option>
+                            </select>
+                            <div *ngIf="pagesubmit && myform.controls.dept.errors">
+                                <p *ngIf="myform.controls.dept.errors.required">
+                                    <i class="text-danger">Please select Department</i>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf = "dept.value!='Finance'">
+                            <input type="checkbox" formControlName="technology">&nbsp;
+                            <label>Known Technology</label>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <textarea class="form-control" formControlName="address"></textarea>
+                            <div *ngIf="pagesubmit && myform.controls.address.errors">
+                                <p *ngIf="myform.controls.address.errors.required">
+                                    <i class="text-danger">Please enter address</i>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="text-center form-group">
+                            <p class="text-danger text-center">{{errormsg}}</p>
+                            <p class="text-success text-center">{{msg}}</p>
+                        </div>
+                        <div class="text-center form-group">
+                            <button type="submit" class="btn btn-primary">Add</button>
+                            &nbsp;
+                            <button (click)="reset()" type="reset" class="btn btn-warning">Reset</button>
+                        </div>
+                        <div class="text-center">
+                            <a href ="/employeeinfo">Back to Employee List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

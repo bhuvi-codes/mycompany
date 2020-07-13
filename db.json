@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "fname": "Admin",
+      "lname": "User",
+      "email": "admin@abc.com",
+      "pass": "password",
+      "id": 1
+    }
+  ],
+  "employees": [
+    {
+      "ename": "John",
+      "mobile": 8989898989,
+      "email": "john@abc.com",
+      "gender": "male",
+      "address": "bangalore",
+      "technology": true,
+      "dept" : "Development",
+      "age": "23",
+      "id": 1
+    },
+    {
+      "ename": "James",
+      "mobile": 8989898989,
+      "email": "james@abc.com",
+      "gender": "male",
+      "address": "chennai",
+      "technology": true,
+      "dept" : "Testing",
+      "age": "25",
+      "id": 2
+    },
+    {
+      "ename": "Jennifer",
+      "mobile": 8989898989,
+      "email": "jenny@abc.com",
+      "gender": "female",
+      "address": "trichy",
+      "technology": false,
+      "dept" : "System Admin",
+      "age": "22",
+      "id": 3
+    },
+    {
+      "ename": "Naren",
+      "mobile": 8989898989,
+      "email": "naren@abc.com",
+      "gender": "male",
+      "address": "mumbai",
+      "technology": "N/A",
+      "dept" : "Finance",
+      "age": "26",
+      "id": 4
+    }
+  ]
+}

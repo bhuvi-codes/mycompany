@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h3>Employee List</h3>
+        </div>
+        <br>
+        <div class="col-md-12 text-right form-group">
+            <button class="btn btn-warning text-white" (click)="chartview = true">Chart View</button> &nbsp;
+            <button class="btn btn-warning text-white" (click)="chartview = false">Table View</button> &nbsp;
+            <a href="/addemployee" class="btn btn-primary text-white">Add New Employee</a>
+        </div>
+        <table class="table table-bordered" *ngIf="chartview==false">
+            <thead class="bg-light">
+                <tr>
+                    <th>Emp Id</th>
+                    <th>Emp Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Department</th>
+                    <th>Known Technology</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of employeelist">
+                    <td>{{row.id}}</td>
+                    <td>{{row.ename}}</td>
+                    <td>{{row.mobile}}</td>
+                    <td>{{row.email}}</td>
+                    <td>{{row.gender}}</td>
+                    <td>{{row.age}}</td>
+                    <td>{{row.dept}}</td>
+                    <td>{{row.technology}}</td>
+                    <td>{{row.address}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="col-md-12 text-center form-group" *ngIf="chartview==true">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 text-center">
+                    <h3>Employee Count Visualization</h3>
+                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                        [legend]="barChartLegend" [colors]="barChartColors" [chartType]="barChartType">
+                    </canvas>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+</div>
